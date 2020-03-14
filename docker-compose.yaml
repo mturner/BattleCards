@@ -1,0 +1,25 @@
+version: "3"
+services:
+
+  service-redis:
+    image: redis:alpine
+    container_name: redis
+    ports:
+      - 6380:6379
+    networks:
+      - battlecards
+
+  app:
+    build: ./
+    ports:
+      - 3001:3001
+    expose:
+      - 3001
+    networks:
+      - battlecards
+    volumes:
+      - "./:/usr/src/app"
+
+networks:
+  battlecards:
+    driver: bridge
