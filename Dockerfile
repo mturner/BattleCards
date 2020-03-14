@@ -3,4 +3,4 @@ RUN npm install pm2 nodemon supervisor -g
 WORKDIR /usr/src/app
 COPY . .
 RUN npm install --production
-CMD ["pm2-docker", "./src/index.js"]
+CMD ["pm2-docker", "./app.js"]
